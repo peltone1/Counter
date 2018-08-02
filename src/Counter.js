@@ -3,12 +3,21 @@ import React from 'react'
     state = {
             number: 0
         }
+        incHandler = () => {
+            this.setState({
+                number: this.state.number + 1
+            })
+        }
     
     render() {
         return (
             <div>
                 <h1>{this.state.number}</h1>
-                <button>+</button>
+                <button 
+                konClick={this.incHandler}
+                >
+                +
+                </button>
                 <button>-</button>
             </div>
         )
