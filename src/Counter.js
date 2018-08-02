@@ -1,11 +1,9 @@
 import React from 'react'
  class Counter extends React.Component {
-    constructor() {
-        super()
-         this.state = {
+    state = {
             number: 0
         }
-    }
+    
     render() {
         return (
             <div>
@@ -16,4 +14,5 @@ import React from 'react'
         )
     }
 }
+
 export default Counter
