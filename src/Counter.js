@@ -2,7 +2,7 @@ import React from 'react'
  class Counter extends React.Component {
     state = {
             number: 0,
-            numberTwo: this.number
+        
         }
         incHandler = () => {
             this.setState({
@@ -24,6 +24,11 @@ import React from 'react'
                 number: this.state.number - 5
             })
         }
+        resetCounter = () => {
+            this.setState({
+              number: this.state.startCounter = 0
+            })
+          }
     
     render() {
         return (
@@ -44,6 +49,13 @@ import React from 'react'
                     <button onClick={this.decFiveHandler}>
                     -5
                     </button>
+                </div>
+                <div>
+                    <button onClick={this.resetCounter }>
+                    Reset
+                    
+                    </button>
+                
                 </div>
               
             </div>
