@@ -1,36 +1,61 @@
 import React from 'react'
+
+
  class Counter extends React.Component {
-    state = {
-            number: 0,
-        
+        constructor (props){
+            super(props) 
+            this.state = {
+                number: 0
+            }
         }
+        componentDidMount() {
+             const lastState = JSON.parse(localStorage.getItem('counter-homework')) || this.state
+             this.setState(lastState)
+        }
+
+        //  componentWillUnmount(){
+        //      localStorage.setItem('counter-homework', JSON.stringify(this.state))
+        // }
+    
         incHandler = () => {
+            const number = { number: this.state.number + 1}
             this.setState({
-                number: this.state.number + 1
-            })
+                     number: this.state.number + 1
+                  })
+            localStorage.setItem('counter-homework', JSON.stringify(number))
+           
         }
         decHandler = () => {
+            const number = { number: this.state.number - 1}
             this.setState({
                 number: this.state.number - 1
             })
+            localStorage.setItem('counter-homework', JSON.stringify(number))
         }
         incFiveHandler = () => {
+            const number = { number: this.state.number + 5}
             this.setState({
                 number: this.state.number + 5
             })
+            localStorage.setItem('counter-homework', JSON.stringify(number))
         }
         decFiveHandler = () => {
+            const number = { number: this.state.number - 5}
             this.setState({
                 number: this.state.number - 5
             })
+            localStorage.setItem('counter-homework', JSON.stringify(number))
         }
         resetCounter = () => {
+            const number = { number: this.state.number * 0}
             this.setState({
-              number: this.state.startCounter = 0
+              number: this.number = 0
             })
+            localStorage.setItem('counter-homework', JSON.stringify(number))
           }
     
     render() {
+       
         return (
             <div>
                 <div>
@@ -51,16 +76,14 @@ import React from 'react'
                     </button>
                 </div>
                 <div>
-                    <button onClick={this.resetCounter }>
+                    <button onClick={this.resetCounter}>
                     Reset
-                    
                     </button>
-                
                 </div>
-              
             </div>
         )
     }
 }
+
 
 export default Counter

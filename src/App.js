@@ -1,15 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.css'
+import { BrowserRouter as Router } from 'react-router-dom'
+
 import Counter from './Counter'
 
-class App extends Component {
-  render() {
-    return (
+const App = () => (
+  
+  
       <div>
-        <Counter/>
+        <Router>
+            <div>
+                <Counter/>
+            </div>
+        </Router>
       </div>
-    );
-  }
-}
+    
+  
+)
 
 export default App;
